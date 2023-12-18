@@ -11,66 +11,66 @@ import javafx.stage.Stage;
 
 public class Contador extends Application {
 
-	private int contador = 0;
+    private int contador = 0;
 
-	private void atualizarLabelNumero(Label label) {
-		label.setText(Integer.toString(contador));
+    public static void main(String[] args) {
+        launch(args);
+    }
 
-		label.getStyleClass().remove("verde");
-		label.getStyleClass().remove("vermelho");
+    private void atualizarLabelNumero(Label label) {
+        label.setText(Integer.toString(contador));
 
-		if (contador > 0) {
-			label.getStyleClass().add("verde");
-		} else if (contador < 0) {
-			label.getStyleClass().add("vermelho");
-		}
-	}
+        label.getStyleClass().remove("verde");
+        label.getStyleClass().remove("vermelho");
 
-	@Override
-	public void start(Stage primaryStage) throws Exception {
+        if (contador > 0) {
+            label.getStyleClass().add("verde");
+        } else if (contador < 0) {
+            label.getStyleClass().add("vermelho");
+        }
+    }
 
-		Label labelTitulo = new Label("Contador");
-		labelTitulo.getStyleClass().add("titulo");
-		Label labelNumero = new Label("0");
-		labelNumero.getStyleClass().add("numero");
+    @Override
+    public void start(Stage primaryStage) throws Exception {
 
-		Button botaoDecremento = new Button("-");
-		botaoDecremento.getStyleClass().add("botoes");
-		botaoDecremento.setOnAction(e -> {
-			contador--;
-			atualizarLabelNumero(labelNumero);
-		});
-		Button botaoIncremento = new Button("+");
-		botaoIncremento.getStyleClass().add("botoes");
-		botaoIncremento.setOnAction(e -> {
-			contador++;
-			atualizarLabelNumero(labelNumero);
-		});
+        Label labelTitulo = new Label("Contador");
+        labelTitulo.getStyleClass().add("titulo");
+        Label labelNumero = new Label("0");
+        labelNumero.getStyleClass().add("numero");
 
-		HBox boxBotoes = new HBox();
-		boxBotoes.setAlignment(Pos.CENTER);
-		boxBotoes.setSpacing(10);
-		boxBotoes.getChildren().add(botaoDecremento);
-		boxBotoes.getChildren().add(botaoIncremento);
+        Button botaoDecremento = new Button("-");
+        botaoDecremento.getStyleClass().add("botoes");
+        botaoDecremento.setOnAction(e -> {
+            contador--;
+            atualizarLabelNumero(labelNumero);
+        });
+        Button botaoIncremento = new Button("+");
+        botaoIncremento.getStyleClass().add("botoes");
+        botaoIncremento.setOnAction(e -> {
+            contador++;
+            atualizarLabelNumero(labelNumero);
+        });
 
-		VBox boxConteudo = new VBox();
-		boxConteudo.getStyleClass().add("conteudo");
-		boxConteudo.setSpacing(10);
-		boxConteudo.setAlignment(Pos.CENTER);
-		boxConteudo.getChildren().add(labelTitulo);
-		boxConteudo.getChildren().add(labelNumero);
-		boxConteudo.getChildren().add(boxBotoes);
+        HBox boxBotoes = new HBox();
+        boxBotoes.setAlignment(Pos.CENTER);
+        boxBotoes.setSpacing(10);
+        boxBotoes.getChildren().add(botaoDecremento);
+        boxBotoes.getChildren().add(botaoIncremento);
 
-		String caminhoDoCss = getClass().getResource("/basico/Contador.css").toExternalForm();
-		Scene cenaPrincipal = new Scene(boxConteudo, 400, 400);
-		cenaPrincipal.getStylesheets().add(caminhoDoCss);
-		cenaPrincipal.getStylesheets().add("https://fonts.googleapis.com/css2?family=Oswald");
+        VBox boxConteudo = new VBox();
+        boxConteudo.getStyleClass().add("conteudo");
+        boxConteudo.setSpacing(10);
+        boxConteudo.setAlignment(Pos.CENTER);
+        boxConteudo.getChildren().add(labelTitulo);
+        boxConteudo.getChildren().add(labelNumero);
+        boxConteudo.getChildren().add(boxBotoes);
 
-		primaryStage.setScene(cenaPrincipal);
-		primaryStage.show();
-	}
+        String caminhoDoCss = getClass().getResource("/basico/Contador.css").toExternalForm();
+        Scene cenaPrincipal = new Scene(boxConteudo, 400, 400);
+        cenaPrincipal.getStylesheets().add(caminhoDoCss);
+        cenaPrincipal.getStylesheets().add("https://fonts.googleapis.com/css2?family=Oswald");
 
-	public static void main(String[] args) {
-		launch(args);
-	}
+        primaryStage.setScene(cenaPrincipal);
+        primaryStage.show();
+    }
 }
