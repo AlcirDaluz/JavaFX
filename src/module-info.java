@@ -1,6 +1,6 @@
 module exerciciosfx {
-	requires javafx.controls;
+    requires javafx.controls;
 
-	opens basico;
-	opens layout;
+    opens basico;
+    opens layout;
 }

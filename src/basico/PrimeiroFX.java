@@ -9,31 +9,31 @@ import javafx.stage.Stage;
 
 public class PrimeiroFX extends Application {
 
-	@Override
-	public void start(Stage primaryStage) throws Exception {
+    public static void main(String[] args) {
+        launch(args);
+    }
 
-		Button botaoA = new Button("A");
-		Button botaoB = new Button("B");
-		Button botaoC = new Button("C");
+    @Override
+    public void start(Stage primaryStage) throws Exception {
 
-		botaoA.setOnAction(e -> System.out.println("A"));
-		botaoB.setOnAction(e -> System.out.println("B"));
-		botaoC.setOnAction(e -> System.exit(0));
+        Button botaoA = new Button("A");
+        Button botaoB = new Button("B");
+        Button botaoC = new Button("C");
 
-		HBox box = new HBox();
-		box.setAlignment(Pos.CENTER);
-		box.setSpacing(10);
-		box.getChildren().add(botaoA);
-		box.getChildren().add(botaoB);
-		box.getChildren().add(botaoC);
+        botaoA.setOnAction(e -> System.out.println("A"));
+        botaoB.setOnAction(e -> System.out.println("B"));
+        botaoC.setOnAction(e -> System.exit(0));
 
-		Scene unicaCena = new Scene(box, 800, 600);
+        HBox box = new HBox();
+        box.setAlignment(Pos.CENTER);
+        box.setSpacing(10);
+        box.getChildren().add(botaoA);
+        box.getChildren().add(botaoB);
+        box.getChildren().add(botaoC);
 
-		primaryStage.setScene(unicaCena);
-		primaryStage.show();
-	}
+        Scene unicaCena = new Scene(box, 800, 600);
 
-	public static void main(String[] args) {
-		launch(args);
-	}
+        primaryStage.setScene(unicaCena);
+        primaryStage.show();
+    }
 }
