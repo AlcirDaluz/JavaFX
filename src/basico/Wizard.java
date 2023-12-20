@@ -9,76 +9,76 @@ import javafx.stage.Stage;
 
 public class Wizard extends Application {
 
-	private Stage janela;
-	private Scene passo1;
-	private Scene passo2;
-	private Scene passo3;
+    private Stage janela;
+    private Scene passo1;
+    private Scene passo2;
+    private Scene passo3;
 
-	@Override
-	public void start(Stage primaryStage) throws Exception {
+    public static void main(String[] args) {
+        launch(args);
+    }
 
-		janela = primaryStage;
+    @Override
+    public void start(Stage primaryStage) throws Exception {
 
-		criarPasso1();
-		criarPasso2();
-		criarPasso3();
+        janela = primaryStage;
 
-		janela.setScene(passo1);
-		janela.setTitle("Wizard :: Passo 01");
-		janela.show();
-	}
+        criarPasso1();
+        criarPasso2();
+        criarPasso3();
 
-	private void criarPasso1() {
-		Button proximoPasso = new Button("Ir para o passo 2");
-		proximoPasso.setOnAction(e -> {
-			janela.setScene(passo2);
-			janela.setTitle("Wizard :: Passo 02");
-		});
-		HBox box = new HBox();
-		box.setAlignment(Pos.CENTER);
-		box.getChildren().add(proximoPasso);
+        janela.setScene(passo1);
+        janela.setTitle("Wizard :: Passo 01");
+        janela.show();
+    }
 
-		passo1 = new Scene(box, 400, 400);
-	}
+    private void criarPasso1() {
+        Button proximoPasso = new Button("Ir para o passo 2");
+        proximoPasso.setOnAction(e -> {
+            janela.setScene(passo2);
+            janela.setTitle("Wizard :: Passo 02");
+        });
+        HBox box = new HBox();
+        box.setAlignment(Pos.CENTER);
+        box.getChildren().add(proximoPasso);
 
-	private void criarPasso2() {
-		Button passoAnterior = new Button("Ir para o passo 1");
-		passoAnterior.setOnAction(e -> {
-			janela.setScene(passo1);
-			janela.setTitle("Wizard :: Passo 01");
-		});
-		Button proximoPasso = new Button("Ir para o passo 3");
-		proximoPasso.setOnAction(e -> {
-			janela.setScene(passo3);
-			janela.setTitle("Wizard :: Passo 03");
-		});
-		HBox box = new HBox();
-		box.setAlignment(Pos.CENTER);
-		box.getChildren().add(passoAnterior);
-		box.getChildren().add(proximoPasso);
+        passo1 = new Scene(box, 400, 400);
+    }
 
-		passo2 = new Scene(box, 400, 400);
-	}
+    private void criarPasso2() {
+        Button passoAnterior = new Button("Ir para o passo 1");
+        passoAnterior.setOnAction(e -> {
+            janela.setScene(passo1);
+            janela.setTitle("Wizard :: Passo 01");
+        });
+        Button proximoPasso = new Button("Ir para o passo 3");
+        proximoPasso.setOnAction(e -> {
+            janela.setScene(passo3);
+            janela.setTitle("Wizard :: Passo 03");
+        });
+        HBox box = new HBox();
+        box.setAlignment(Pos.CENTER);
+        box.getChildren().add(passoAnterior);
+        box.getChildren().add(proximoPasso);
 
-	private void criarPasso3() {
-		Button passoAnterior = new Button("Ir para o passo 2");
-		passoAnterior.setOnAction(e -> {
-			janela.setScene(passo2);
-			janela.setTitle("Wizard :: Passo 02");
-		});
-		Button proximoPasso = new Button("Finalizar");
-		proximoPasso.setOnAction(e -> {
-			System.exit(0);
-		});
-		HBox box = new HBox();
-		box.setAlignment(Pos.CENTER);
-		box.getChildren().add(passoAnterior);
-		box.getChildren().add(proximoPasso);
+        passo2 = new Scene(box, 400, 400);
+    }
 
-		passo3 = new Scene(box, 400, 400);
-	}
+    private void criarPasso3() {
+        Button passoAnterior = new Button("Ir para o passo 2");
+        passoAnterior.setOnAction(e -> {
+            janela.setScene(passo2);
+            janela.setTitle("Wizard :: Passo 02");
+        });
+        Button proximoPasso = new Button("Finalizar");
+        proximoPasso.setOnAction(e -> {
+            System.exit(0);
+        });
+        HBox box = new HBox();
+        box.setAlignment(Pos.CENTER);
+        box.getChildren().add(passoAnterior);
+        box.getChildren().add(proximoPasso);
 
-	public static void main(String[] args) {
-		launch(args);
-	}
+        passo3 = new Scene(box, 400, 400);
+    }
 }
